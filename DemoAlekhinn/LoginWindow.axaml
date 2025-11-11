@@ -1,0 +1,66 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoAlekhinn.LoginWindow"
+        Title="Авторизация в системе"
+        Width="400"
+        Height="350"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+    
+    <Grid RowDefinitions="Auto,*,Auto" Margin="20">
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                   Text="Авторизация" 
+                   FontSize="25" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20"/>
+        
+        <!-- Форма ввода -->
+        <StackPanel Grid.Row="1" Spacing="15">
+            <!-- Логин -->
+            <StackPanel>
+                <TextBlock Text="Логин:" FontWeight="SemiBold"/>
+                <TextBox x:Name="LoginTextBox" 
+                         Watermark="Введите логин"
+                         Height="35"
+                         FontSize="14"/>
+            </StackPanel>
+            
+            <!-- Пароль -->
+            <StackPanel>
+                <TextBlock Text="Пароль:" FontWeight="SemiBold"/>
+                <TextBox x:Name="PasswordTextBox" 
+                         Watermark="Введите пароль"
+                         Height="35"
+                         FontSize="14"
+                         PasswordChar="*"/>
+            </StackPanel>
+            
+            <!-- Сообщение об ошибке -->
+            <Border x:Name="ErrorBorder" 
+                    Background="#FFE8E8E8" 
+                    BorderBrush="#FFFF0000" 
+                    BorderThickness="1" 
+                    Padding="10,8"
+                    CornerRadius="4"
+                    IsVisible="False">
+                <TextBlock x:Name="ErrorTextBlock" 
+                           Text="Ошибка авторизации" 
+                           Foreground="#FFD00000"
+                           TextWrapping="Wrap"/>
+            </Border>
+        </StackPanel>
+        
+        <!-- Кнопка входа -->
+        <Button Grid.Row="2" 
+                Content="Войти" 
+                Height="40" 
+                FontSize="16" 
+                FontWeight="SemiBold"
+                Background="#FF0078D4"
+                Foreground="White"
+                Click="OnLoginButtonClick"
+                Margin="0,20,0,0"/>
+    </Grid>
+</Window>

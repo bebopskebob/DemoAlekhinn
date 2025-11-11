@@ -1,0 +1,117 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoAlekhinn.MainWindow"
+        Title="Производственная система"
+        Width="1200"
+        Height="700"
+        WindowStartupLocation="CenterScreen">
+    
+    <DockPanel>
+        <!-- Заголовок -->
+        <Border DockPanel.Dock="Top" 
+                Background="#FF0078D4" 
+                Padding="15,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" 
+                           Text="Производственная информационная система" 
+                           FontSize="18" 
+                           FontWeight="Bold" 
+                           Foreground="White"/>
+                
+                <StackPanel Grid.Column="1" 
+                            Orientation="Horizontal" 
+                            Spacing="10">
+                    <TextBlock Text="Пользователь:" 
+                               Foreground="White" 
+                               VerticalAlignment="Center"/>
+                    <TextBlock x:Name="UserInfoTextBlock" 
+                               Foreground="White" 
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                    <Button Content="Выйти" 
+                            Background="Transparent" 
+                            Foreground="White"
+                            BorderBrush="White"
+                            Click="OnLogoutButtonClick"
+                            Padding="10,5"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <!-- Панель навигации -->
+        <StackPanel DockPanel.Dock="Left" 
+                    Width="201" 
+                    Background="#FFF0F0F0" 
+                    Spacing="2">
+            
+            <TextBlock Text="Меню" 
+                       FontWeight="Bold" 
+                       Margin="10,15,10,5"/>
+            
+            <Button x:Name="MaterialsButton" 
+                    Content="Материалы" 
+                    Height="40" 
+                    Background="Transparent"
+                    Click="OnMaterialsButtonClick"/>
+            
+            <Button x:Name="CustomersButton" 
+                    Content="Заказчики" 
+                    Height="40" 
+                    Background="Transparent"
+                    Click="OnCustomersButtonClick"/>
+            
+            <Button x:Name="OrdersButton" 
+                    Content="Заказы" 
+                    Height="40" 
+                    Background="Transparent"
+                    Click="OnOrdersButtonClick"/>
+            
+            <Button x:Name="ProductionButton" 
+                    Content="Производство" 
+                    Height="40" 
+                    Background="Transparent"
+                    Click="OnProductionButtonClick"/>
+            
+            <!-- Админские функции -->
+            <Border x:Name="AdminSection" 
+                    Background="#FFE8F4FD" 
+                    Margin="5" 
+                    Padding="5" 
+                    IsVisible="False">
+                <StackPanel>
+                    <TextBlock Text="Администрирование" 
+                               FontWeight="SemiBold" 
+                               FontSize="12"
+                               Margin="0,5"/>
+                    <Button Content="Пользователи" 
+                            Height="35" 
+                            Background="Transparent"
+                            FontSize="12"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        
+        <!-- Основное содержимое -->
+        <ScrollViewer>
+            <StackPanel x:Name="MainContent" 
+                        Margin="20">
+                <TextBlock x:Name="WelcomeTextBlock" 
+                           Text="Добро пожаловать в систему!" 
+                           FontSize="24" 
+                           FontWeight="Bold"
+                           Margin="0,0,0,20"/>
+                
+                <!-- Здесь будет динамическое содержимое -->
+                <TextBlock x:Name="ContentTextBlock" 
+                           Text="Выберите раздел в меню слева для работы с системой." 
+                           FontSize="16"
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>
